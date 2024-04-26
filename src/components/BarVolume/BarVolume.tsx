@@ -1,6 +1,4 @@
-
 import classNames from "classnames";
-
 import styles from "./BarVolume.module.css";
 
 export default function BarVolume() {

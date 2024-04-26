@@ -1,16 +1,17 @@
 import styles from "./Main.module.css";
-import Nav from "../Nav/Nav";
-import Centar from "../Centar/Centar";
-// import MainSlideBar from "../MainSlideBar/MainSlideBar"
+
+import Nav from "@/components/Nav/Nav";
+import Centar from "@/components/Centar/Centar";
+import MaineSideBar from "@/components/MainSideBar/MainSideBar";
 
 export default function Main() {
   return (
-    <main className={styles.main}>
-      <Nav></Nav>
-      <Centar></Centar>
-      {/* <MainSlideBar></MainSlideBar> */}
-    </main>
+    <>
+      <main className={styles.main}>
+        <Nav></Nav>
+        <Centar></Centar>
+        <MaineSideBar></MaineSideBar>
+      </main>
+    </>
   );
 }
-
-// надо восстановить маинслайдербар

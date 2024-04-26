@@ -1,9 +1,9 @@
-import Image from "next/image";
+// import Image from "next/image";
 import classNames from "classnames";
-
 import styles from "./Centar.module.css";
-import Filter from "../Filter/Filter";
-import PlayListItem from "../PlayListItem/PlayListItem";
+
+import Filter from "@/components/Filter/Filter";
+import PlayListItem from "@/components/PlayListItem/PlayListItem";
 
 export default function Centar() {
   return (

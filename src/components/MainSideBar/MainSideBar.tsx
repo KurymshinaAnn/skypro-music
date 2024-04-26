@@ -1,7 +1,6 @@
 import Image from "next/image";
-import classNames from "classnames";
-
-import styles from "./MaineSideBar.module.css";
+// import classNames from "classnames";
+import styles from "./MainSideBar.module.css"
 
 export default function MaineSideBar() {
   return (
@@ -21,7 +20,7 @@ export default function MaineSideBar() {
               <a className={styles.sidebarLink} href="#">
                 <Image
                   className={styles.sidebarImg}
-                  src="img/playlist01.png"
+                  src="/img/playlist01.png"
                   alt="day's playlist"
                   height={12}
                   width={12}
@@ -32,7 +31,7 @@ export default function MaineSideBar() {
               <a className={styles.sidebarLink} href="#">
                 <Image
                   className={styles.sidebarImg}
-                  src="img/playlist02.png"
+                  src="/img/playlist02.png"
                   alt="day's playlist"
                   height={12}
                   width={12}
@@ -43,7 +42,7 @@ export default function MaineSideBar() {
               <a className={styles.sidebarLink} href="#">
                 <Image
                   className={styles.sidebarImg}
-                  src="img/playlist03.png"
+                  src="/img/playlist03.png"
                   alt="day's playlist"
                   height={12}
                   width={12}

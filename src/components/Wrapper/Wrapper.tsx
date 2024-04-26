@@ -1,7 +1,7 @@
 // import Image from "next/image";
 // import classNames from "classnames";
-
 import styles from "./Wrapper.module.css";
+
 import Bar from "@/components/Bar/Bar";
 import Main from "@/components/Main/Main";
 
