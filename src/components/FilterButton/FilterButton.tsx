@@ -18,7 +18,7 @@ export default function FilterButton({
     <div className={styles.filterWrapper}>
       <div
         onClick={onClick}
-        className={classNames(styles.filterButton, styles._btn_text)}
+        className={classNames(styles.filterButton, styles._btnText)}
       >
         {children}
       </div>

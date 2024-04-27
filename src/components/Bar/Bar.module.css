@@ -73,6 +73,10 @@
     align-items: center;
 }
 
+._btn {
+    cursor: pointer;
+}
+
 .playerBtnPrev {
     margin-right: 23px;
 }
@@ -139,6 +143,18 @@
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
     flex-direction: row;
+}
+
+._btnIcon:hover svg {
+    fill: transparent;
+    stroke: #acacac;
+    cursor: pointer;
+}
+
+._btnIcon:active svg {
+    fill: transparent;
+    stroke: #ffffff;
+    cursor: pointer;
 }
 
 .trackPlayContain {
@@ -248,3 +264,9 @@
     stroke: #696969;
 }
 
+._btnIcon:active .trackPlayLike_svg,
+._btnIcon:active .trackPlayDislike_svg {
+    fill: #696969;
+    stroke: #ffffff;
+    cursor: pointer;
+}

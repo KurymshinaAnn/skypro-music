@@ -1,4 +1,3 @@
-// import Image from "next/image";
 import classNames from "classnames";
 import styles from "./Bar.module.css";
 
@@ -8,7 +7,6 @@ export default function Bar() {
   return (
     <>
       <div className={styles.bar}>
-        {/* нужно переписать все стили через кеймелкейс типо barContent */}
         <div className={styles.barContent}>
           <div className={styles.barPlayerProgress}></div>
           <div className={styles.barPlayerBlock}>
@@ -43,7 +41,7 @@ export default function Bar() {
                   className={classNames(
                     styles.playerBtnRepeat,
                     styles.playerBtn,
-                    styles._btn_icon
+                    styles._btnIcon
                   )}
                 >
                   <svg className={styles.playerBtnRepeatSvg}>
@@ -54,7 +52,7 @@ export default function Bar() {
                   className={classNames(
                     styles.playerBtnShuffle,
                     styles.playerBtn,
-                    styles._btn_icon
+                    styles._btnIcon
                   )}
                 >
                   <svg className={styles.playerBtnShuffleSvg}>
@@ -86,7 +84,7 @@ export default function Bar() {
                   <div
                     className={classNames(
                       styles.trackPlayLike,
-                      styles._btn_icon
+                      styles._btnIcon
                     )}
                   >
                     <svg className={styles.trackPlayLikeSvg}>
@@ -96,7 +94,7 @@ export default function Bar() {
                   <div
                     className={classNames(
                       styles.trackPlayDislike,
-                      styles._btn_icon
+                      styles._btnIcon
                     )}
                   >
                     <svg className={styles.trackPlayDislikeSvg}>

@@ -9,7 +9,7 @@ export default function Logo() {
           className={styles.logoImage}
           src="/img/logo.png"
           alt="logo_img"
-          width={113.33}
+          width={114}
           height={17}
         />
       </div>

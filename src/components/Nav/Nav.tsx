@@ -1,12 +1,11 @@
-import Image from "next/image";
-// import classNames from "classnames";
 import styles from "./Nav.module.css";
 import NavBurger from "@/components/NavBurger/NavBurger";
+import Logo from "@/components/Logo/Logo";
 
 export default function Nav() {
   return (
-    <>
       <nav className={styles.mainNav}>
+        <Logo></Logo>
         <NavBurger></NavBurger>
         <div className={styles.navMenu}>
           <ul className={styles.menuList}>
@@ -28,6 +27,5 @@ export default function Nav() {
           </ul>
         </div>
       </nav>
-    </>
   );
 }

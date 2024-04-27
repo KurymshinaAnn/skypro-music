@@ -50,36 +50,36 @@ body {
   background-color: #181818;
 } */
 
-._btn_text:hover {
+/* ._btnText:hover {
   border-color: #d9b6ff;
   color: #d9b6ff;
   cursor: pointer;
-}
+} */
 
-._btn_icon:hover svg {
+/* ._btnIcon:hover svg {
   fill: transparent;
   stroke: #acacac;
   cursor: pointer;
-}
+} */
 
-._btn_text:active {
+/* ._btnText:active {
   border-color: #ad61ff;
   color: #ad61ff;
   cursor: pointer;
-}
+} */
 
-._btn_icon:active svg {
+/* ._btnIcon:active svg {
   fill: transparent;
   stroke: #ffffff;
   cursor: pointer;
-}
+} */
 
-._btn_icon:active .track_play__like_svg,
-._btn_icon:active .track_play__dislike_svg {
+/* ._btnIcon:active .trackPlayLike_svg,
+._btnIcon:active .trackPlayDislike_svg {
   fill: #696969;
   stroke: #ffffff;
   cursor: pointer;
-}
+} */
 
 /* .main {
   -webkit-box-flex: 1;
@@ -243,41 +243,41 @@ body {
   color: #ffffff;
 } */
 
-.searchText::-webkit-input-placeholder {
+/* .searchText::-webkit-input-placeholder {
   background-color: transparent;
   color: #ffffff;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-}
+} */
 
-.searchText:-ms-input-placeholder {
+/* .searchText:-ms-input-placeholder {
   background-color: transparent;
   color: #ffffff;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-}
+} */
 
-.searchText::-ms-input-placeholder {
+/* .searchText::-ms-input-placeholder {
   background-color: transparent;
   color: #ffffff;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-}
+} */
 
-.searchText::placeholder {
+/* .searchText::placeholder {
   background-color: transparent;
   color: #ffffff;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-}
+} */
 
 /* .filterTitle {
   font-style: normal;
@@ -297,9 +297,9 @@ body {
   padding: 6px 20px;
 } */
 
-.filterButton:not(:last-child) {
+/* .filterButton:not(:last-child) {
   margin-right: 10px;
-}
+} */
 
 /* .contentTitle {
   display: -webkit-box;
