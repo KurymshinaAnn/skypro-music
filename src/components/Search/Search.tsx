@@ -1,0 +1,19 @@
+import styles from "./Search.module.css";
+
+export default function Search() {
+  return (
+    <>
+      <div className={styles.centerblockSearch}>
+        <svg className={styles.searchSvg}>
+          <use href="img/icon/sprite.svg#icon-search"></use>
+        </svg>
+        <input
+          className={styles.searchText}
+          type="search"
+          placeholder="Поиск"
+          name="search"
+        />
+      </div>
+    </>
+  );
+}

@@ -1,16 +1,11 @@
-async function getData() {
-    const res = await fetch('https://example.com/...');
-  
-    if (!res.ok) {
-      throw new Error('Ошибка при получении данных');
-    }
-  
-    return res.json();
+export async function getTracks() {
+  const res = await fetch(
+    "https://skypro-music-api.skyeng.tech/catalog/track/all/"
+  );
+
+  if (!res.ok) {
+    throw new Error("Ошибка при получении данных");
   }
-  
-  // Обратите внимание, что функция компонента также является асинхронной
-  export default async function HomePage() {
-    const data = await getData();
-  
-    return <main>/* Некий контент */</main>;
-  }
+
+  return res.json();
+}

@@ -1,8 +1,6 @@
-// import Image from "next/image";
-// import classNames from "classnames";
 import styles from "./PlayListItem.module.css";
 
-export default function PlayListItem() {
+export default function PlayListItem({ item }: { item: trackType }) {
   return (
     <>
       <div className={styles.playlistItem}>
@@ -15,25 +13,26 @@ export default function PlayListItem() {
             </div>
             <div className={styles.trackTitleText}>
               <a className={styles.trackTitleLink} href="http://">
-                Guilt <span className={styles.trackTitleSpan}></span>
+                {item.name}
+                <span className={styles.trackTitleSpan}></span>
               </a>
             </div>
           </div>
           <div className={styles.trackAuthor}>
             <a className={styles.trackAuthorLink} href="http://">
-              Nero
+              {item.author}
             </a>
           </div>
           <div className={styles.trackAlbum}>
             <a className={styles.trackAlbumLink} href="http://">
-              Welcome Reality
+              {item.album}
             </a>
           </div>
           <div className={styles.trackTime}>
             <svg className={styles.trackTimeSvg}>
-              <use href="img/icon/sprite.svg#icon-like"></use>
+              <use href="/img/icon/sprite.svg#icon-like"></use>
             </svg>
-            <span className={styles.trackTimeText}>4:44</span>
+            <span className={styles.trackTimeText}>{item.duration_in_seconds}</span>
           </div>
         </div>
       </div>
