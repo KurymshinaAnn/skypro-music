@@ -31,6 +31,12 @@
     cursor: pointer;
 }
 
+.btnActive {
+    border-color: #ad61ff;
+    color: #ad61ff;
+    cursor: pointer;
+}
+
 .popUpBlock {
     width: 248px;
     height: 306px;
