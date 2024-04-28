@@ -18,17 +18,25 @@ export default function FilterButton({
     <div className={styles.filterWrapper}>
       <div
         onClick={onClick}
-        className={classNames(styles.filterButton, styles._btnText, isOpened && styles.btnActive)}
+        className={classNames(
+          styles.filterButton,
+          styles._btnText,
+          isOpened && styles.btnActive
+        )}
       >
         {children}
       </div>
       {isOpened && (
         <div className={styles.popUpBlock}>
-          <ul className={styles.popUpSelection}>
-            {list.map((item) => (
-              <li key={item.id}>{item.name}</li>
-            ))}
-          </ul>
+          <div className={styles.popUpScroll}>
+            <ul className={styles.popUpSelection}>
+              {list.map((item) => (
+                <li key={item.id}
+                className={styles.popUpLi}
+                >{item.name}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       )}
     </div>
