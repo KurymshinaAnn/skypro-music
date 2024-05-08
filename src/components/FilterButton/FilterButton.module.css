@@ -1,0 +1,58 @@
+.filterWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.filterButton {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    border: 1px solid #ffffff;
+    border-radius: 60px;
+    padding: 6px 20px;
+    cursor: default;
+    margin-right: 10px;
+}
+
+.filterButton:not(:last-child) {
+    margin-right: 10px;
+}
+
+._btnText:hover {
+    border-color: #d9b6ff;
+    color: #d9b6ff;
+    cursor: pointer;
+}
+
+._btnText:active {
+    border-color: #ad61ff;
+    color: #ad61ff;
+    cursor: pointer;
+}
+
+.btnActive {
+    border-color: #ad61ff;
+    color: #ad61ff;
+    cursor: pointer;
+}
+
+.popUpBlock {
+    width: 248px;
+    height: 306px;
+    border-radius: 12px;
+    background-color: #313131;
+    margin-top: 46px;
+    position: absolute;
+}
+
+.popUpSelection {
+    width: 180px;
+    /* height: 238px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-top: 34px;
+    margin-left: 24px;
+    overflow-y: hidden;
+}

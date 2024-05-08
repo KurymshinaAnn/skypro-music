@@ -1,0 +1,69 @@
+.mainCenterblock {
+    min-width: 12em; flex:1;
+    -webkit-box-flex: 3;
+    -ms-flex-positive: 3;
+    flex-grow: 3;
+    padding: 20px 40px 20px 40px;
+}
+
+.searchText::-webkit-input-placeholder {
+    background-color: transparent;
+    color: #ffffff;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.searchText:-ms-input-placeholder {
+    background-color: transparent;
+    color: #ffffff;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.searchText::-ms-input-placeholder {
+    background-color: transparent;
+    color: #ffffff;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.searchText::placeholder {
+    background-color: transparent;
+    color: #ffffff;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.centerblockH2 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 72px;
+    letter-spacing: -0.8px;
+    margin-bottom: 45px;
+}
+
+.contentTitle {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
