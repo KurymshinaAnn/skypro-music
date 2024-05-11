@@ -13,7 +13,6 @@ export default function PlayListBlock({
   setTrack,
 }: PlayListBlockType) {
   return (
-    <>
       <div className={styles.centerblockContent}>
         <PlaylistTitle></PlaylistTitle>
         <PlayListSection
@@ -21,6 +20,5 @@ export default function PlayListBlock({
           setTrack={setTrack}
         ></PlayListSection>
       </div>
-    </>
   );
 }

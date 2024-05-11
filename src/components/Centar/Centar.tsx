@@ -21,16 +21,11 @@ export default function Centar({ setTrack }: CenterBlockType) {
   }, []);
 
   return (
-    <>
-      <div className={styles.mainCenterblock}>
-        <Search></Search>
-        <h2 className={styles.centerblockH2}>Треки</h2>
-        <Filter></Filter>
-        <PlayListBlock
-          trackList={trackList}
-          setTrack={setTrack}
-        ></PlayListBlock>
-      </div>
-    </>
+    <div className={styles.mainCenterblock}>
+      <Search></Search>
+      <h2 className={styles.centerblockH2}>Треки</h2>
+      <Filter></Filter>
+      <PlayListBlock trackList={trackList} setTrack={setTrack}></PlayListBlock>
+    </div>
   );
 }

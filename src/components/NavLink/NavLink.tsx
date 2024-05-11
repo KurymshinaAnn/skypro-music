@@ -7,12 +7,10 @@ type NavLinkType = {
 
 export default function NavLink({ href, children }: NavLinkType) {
   return (
-    <>
-      <li className={styles.menuItem}>
-        <a href={href} className={styles.menuLink}>
-          {children}
-        </a>
-      </li>
-    </>
+    <li className={styles.menuItem}>
+      <a href={href} className={styles.menuLink}>
+        {children}
+      </a>
+    </li>
   );
 }

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import styles from "./Main.module.css";
 import { useState } from "react";
 
@@ -6,16 +6,16 @@ import Nav from "@/components/Nav/Nav";
 import Centar from "@/components/Centar/Centar";
 import MaineSideBar from "@/components/MainSideBar/MainSideBar";
 
-export default function Main() {
-  const [track, setTrack] = useState<trackType | null>(null);
+type MainkType = {
+  setTrack: (param: trackType) => void;
+};
 
+export default function Main({ setTrack }: MainkType) {
   return (
-    <>
-      <main className={styles.main}>
-        <Nav></Nav>
-        <Centar setTrack={setTrack}></Centar>
-        <MaineSideBar></MaineSideBar>
-      </main>
-    </>
+    <main className={styles.main}>
+      <Nav></Nav>
+      <Centar setTrack={setTrack}></Centar>
+      <MaineSideBar></MaineSideBar>
+    </main>
   );
 }
