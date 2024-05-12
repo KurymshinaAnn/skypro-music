@@ -11,14 +11,12 @@ export default function Nav() {
   }
 
   return (
-    <>
-      <nav className={styles.mainNav}>
-        <Logo></Logo>
-        <NavBurger
-          onClick={() => handleNavClick("menu")}
-          isOpen={activeNav === "menu"}
-        ></NavBurger>
-      </nav>
-    </>
+    <nav className={styles.mainNav}>
+      <Logo></Logo>
+      <NavBurger
+        onClick={() => handleNavClick("menu")}
+        isOpen={activeNav === "menu"}
+      ></NavBurger>
+    </nav>
   );
 }

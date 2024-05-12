@@ -1,25 +1,26 @@
-import { getTracks } from "@/api/tracks";
 import styles from "./PlayListSection.module.css";
 
 import PlayListItem from "@/components/PlayListItem/PlayListItem";
 
-async function PlayListSection() {
-  let playlistSectionArray: trackType[];
-  try {
-    playlistSectionArray = await getTracks();
-  } catch (error) {
-    console.error("Произошла ошибка при получении списка треков:", error);
-    playlistSectionArray = [];
-  }
+type PlayListSectionType = {
+  trackList: trackType[];
+  setTrack: (param: trackType) => void;
+};
 
+function PlayListSection({ trackList, setTrack }: PlayListSectionType) {
   return (
-    <>
-      <div className={styles.contentPlaylist}>
-        {playlistSectionArray.map((item, index) => (
-          <PlayListItem key={index} item={item}></PlayListItem>
-        ))}
-      </div>
-    </>
+    <div className={styles.contentPlaylist}>
+      {trackList.map((track) => (
+        <PlayListItem
+          key={track.id}
+          setTrack={() => setTrack(track)}
+          name={track.name}
+          author={track.author}
+          album={track.album}
+          time={track.duration_in_seconds}
+        ></PlayListItem>
+      ))}
+    </div>
   );
 }
 export default PlayListSection;

@@ -4,6 +4,17 @@ export const authors = [
   { id: 3, name: "John Smith" },
   { id: 4, name: "Jane Smith" },
   { id: 5, name: "John Johnson" },
+  { id: 6, name: "John Johnson" },
+  { id: 7, name: "John Johnson" },
+  { id: 8, name: "John Johnson" },
+  { id: 9, name: "John Johnson" },
+  { id: 10, name: "John Johnson" },
+  { id: 11, name: "John Johnson" },
+  { id: 12, name: "John Johnson" },
+  { id: 13, name: "John Johnson" },
+  { id: 14, name: "John Johnson" },
+  { id: 15, name: "John Johnson" },
+  { id: 16, name: "John Johnson" },
 ];
 
 export const years = [

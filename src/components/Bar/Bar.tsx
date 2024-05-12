@@ -1,25 +1,99 @@
 import classNames from "classnames";
 import styles from "./Bar.module.css";
 
-import BarVolume from "@/components/BarVolume/BarVolume";
+import { useEffect, useRef, useState } from "react";
 
-export default function Bar() {
+import BarVolume from "@/components/BarVolume/BarVolume";
+import ProgressBar from "../ProgressBar/ProgressBar";
+
+type BarType = {
+  track: trackType | null;
+};
+
+export default function Bar({ track }: BarType) {
+  const audioRef = useRef<null | HTMLAudioElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isLooped, setIsLooped] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const duration = audioRef.current?.duration || 0;
+
+  const [volume, setVolume] = useState(50);
+
+  const formatTime = (time: number | undefined) => {
+    if (time && !isNaN(time)) {
+      const minutes = Math.floor(time / 60);
+      const formatMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
+      const seconds = Math.floor(time % 60);
+      const formatSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
+      return `${formatMinutes}:${formatSeconds}`;
+    }
+    return "00:00";
+  };
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = volume / 100;
+    }
+  }, [volume, audioRef]);
+
+  const togglePlay = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+      setIsPlaying((prev) => !prev);
+    }
+  };
+
+  const progressTrack = (value: any) => {
+    setCurrentTime(value);
+    if (audioRef.current) {
+      audioRef.current.currentTime = value;
+    }
+  };
+
+  const handleLoop = () => {
+    if (audioRef.current) {
+      audioRef.current.loop = !isLooped;
+      setIsLooped((prev) => !prev);
+    }
+  };
+
   return (
     <>
       <div className={styles.bar}>
         <div className={styles.barContent}>
-          <div className={styles.barPlayerProgress}></div>
+          <audio
+            ref={audioRef}
+            src={track?.track_file}
+            onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
+          ></audio>
+          <ProgressBar
+            value={currentTime}
+            max={duration}
+            step={0.01}
+            onChange={progressTrack}
+          ></ProgressBar>
+          {/* <div className={styles.barPlayerProgress}>
+            {track && `${formatTime(currentTime)} / ${formatTime(duration)}`}
+          </div> */}
           <div className={styles.barPlayerBlock}>
             <div className={styles.barPlayer}>
               <div className={styles.playerControls}>
                 <div
                   className={classNames(styles.playerBtnPrev, styles.playerBtn)}
                 >
-                  <svg className={styles.playerBtnPrevSvg}>
-                    <use href="img/icon/sprite.svg#icon-prev"></use>
+                  <svg
+                    className={styles.playerBtnPrevSvg}
+                    onClick={() => alert("Еще не реализовано")}
+                  >
+                    <use href="/img/icon/sprite.svg#icon-prev"></use>
                   </svg>
                 </div>
                 <div
+                  onClick={togglePlay}
                   className={classNames(
                     styles.playerBtnPlay,
                     styles.playerBtn,
@@ -27,17 +101,25 @@ export default function Bar() {
                   )}
                 >
                   <svg className={styles.playerBtnPlaySvg}>
-                    <use href="img/icon/sprite.svg#icon-play"></use>
+                    {isPlaying ? (
+                      <use href="/img/icon/sprite.svg#icon-pause"></use>
+                    ) : (
+                      <use href="/img/icon/sprite.svg#icon-play"></use>
+                    )}
                   </svg>
                 </div>
                 <div
                   className={classNames(styles.playerBtnNext, styles.playerBtn)}
                 >
-                  <svg className={styles.playerBtnNextSvg}>
-                    <use href="img/icon/sprite.svg#icon-next"></use>
+                  <svg
+                    className={styles.playerBtnNextSvg}
+                    onClick={() => alert("Еще не реализовано")}
+                  >
+                    <use href="/img/icon/sprite.svg#icon-next"></use>
                   </svg>
                 </div>
                 <div
+                  onClick={handleLoop}
                   className={classNames(
                     styles.playerBtnRepeat,
                     styles.playerBtn,
@@ -45,7 +127,11 @@ export default function Bar() {
                   )}
                 >
                   <svg className={styles.playerBtnRepeatSvg}>
-                    <use href="img/icon/sprite.svg#icon-repeat"></use>
+                    {isLooped ? (
+                      <use href="/img/icon/sprite.svg#icon-repeatOn"></use>
+                    ) : (
+                      <use href="/img/icon/sprite.svg#icon-repeat"></use>
+                    )}
                   </svg>
                 </div>
                 <div
@@ -55,8 +141,11 @@ export default function Bar() {
                     styles._btnIcon
                   )}
                 >
-                  <svg className={styles.playerBtnShuffleSvg}>
-                    <use href="img/icon/sprite.svg#icon-shuffle"></use>
+                  <svg
+                    className={styles.playerBtnShuffleSvg}
+                    onClick={() => alert("Еще не реализовано")}
+                  >
+                    <use href="/img/icon/sprite.svg#icon-shuffle"></use>
                   </svg>
                 </div>
               </div>
@@ -65,18 +154,24 @@ export default function Bar() {
                 <div className={styles.trackPlayContain}>
                   <div className={styles.trackPlayImage}>
                     <svg className={styles.trackPlaySvg}>
-                      <use href="img/icon/sprite.svg#icon-note"></use>
+                      <use href="/img/icon/sprite.svg#icon-note"></use>
                     </svg>
                   </div>
-                  <div className={styles.trackPlayAuthor}>
-                    <a className={styles.trackPlayAuthorLink} href="http://">
-                      Ты та...
-                    </a>
+                  <div
+                    className={classNames(
+                      styles.trackPlayAuthor,
+                      styles.trackPlayAuthorLink
+                    )}
+                  >
+                    {track?.name}
                   </div>
-                  <div className={styles.trackPlayAlbum}>
-                    <a className={styles.trackPlayAlbumLink} href="http://">
-                      Баста
-                    </a>
+                  <div
+                    className={classNames(
+                      styles.trackPlayAlbum,
+                      styles.trackPlayAlbumLink
+                    )}
+                  >
+                    {track?.author}
                   </div>
                 </div>
 
@@ -88,7 +183,7 @@ export default function Bar() {
                     )}
                   >
                     <svg className={styles.trackPlayLikeSvg}>
-                      <use href="img/icon/sprite.svg#icon-like"></use>
+                      <use href="/img/icon/sprite.svg#icon-like"></use>
                     </svg>
                   </div>
                   <div
@@ -98,13 +193,19 @@ export default function Bar() {
                     )}
                   >
                     <svg className={styles.trackPlayDislikeSvg}>
-                      <use href="img/icon/sprite.svg#icon-dislike"></use>
+                      <use href="/img/icon/sprite.svg#icon-dislike"></use>
                     </svg>
                   </div>
                 </div>
               </div>
             </div>
-            <BarVolume></BarVolume>
+            <div className={styles.barPlayerProgress}>
+              {track && `${formatTime(currentTime)} / ${formatTime(duration)}`}
+            </div>
+            <BarVolume
+              volume={volume}
+              onVolumeChange={(e) => setVolume(e.target.value)}
+            ></BarVolume>
           </div>
         </div>
       </div>

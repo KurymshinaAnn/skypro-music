@@ -39,8 +39,49 @@
 
 .volumeProgress {
     width: 109px;
+    margin-bottom: 7px;
 }
 
+
+/* стили ползунка */
+
 .volumeProgressLine {
-    width: 109px;
+    --progress-value: 50%;
+    --progress-height: 5px;
+    --progress-color: #ffffff;
+    --progress-bg-color: #2e2e2e;
+    appearance: none;
+    -webkit-appearance: none;
+    position: relative;
+    background: var(--progress-bg-color);
+    width: 100%;
+    height: var(--progress-height);
+    cursor: pointer;
+}
+
+/* played progress length - Chrome & safari*/
+.volumeProgressLine::before {
+    content: '';
+    height: var(--progress-height);
+    background: var(--progress-color);
+    width: var(--progress-value);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.volumeProgressLine::-webkit-slider-thumb {
+    --thumb-height: 12px;
+    --thumb-width: 12px;
+
+    width: var(--thumb-width);
+    height: var(--thumb-height);
+    /* margin-top: calc((var(--progress-height) / 2) - (var(--thumb-height) / 2)); */
+    border: 2px solid;
+    border-color: #ffffff;
+    border-radius: calc(var(--thumb-height) / 2);
+    background-color: #1a1a1a;
+    cursor: pointer;
+    position: relative;
+    -webkit-appearance: none;
 }
