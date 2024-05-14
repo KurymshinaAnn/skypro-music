@@ -2,6 +2,7 @@ import styles from "./PlayListBlock.module.css";
 
 import PlaylistTitle from "../PlayListTitle/PlayListTitle";
 import PlayListSection from "../PlayListSection/PlayListSection";
+import { trackType } from "@/types";
 
 type PlayListBlockType = {
   trackList: trackType[];

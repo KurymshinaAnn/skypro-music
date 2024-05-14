@@ -5,6 +5,7 @@ import Search from "../Search/Search";
 import Filter from "@/components/Filter/Filter";
 import PlayListBlock from "../PlayListBlock/PlayListBlock";
 import { getTracks } from "@/api/tracks";
+import { trackType } from "@/types";
 
 type CenterBlockType = {
   setTrack: (param: trackType) => void;
