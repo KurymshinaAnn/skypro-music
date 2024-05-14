@@ -1,3 +1,4 @@
+import { trackType } from "@/types";
 import styles from "./PlayListSection.module.css";
 
 import PlayListItem from "@/components/PlayListItem/PlayListItem";
@@ -13,11 +14,9 @@ function PlayListSection({ trackList, setTrack }: PlayListSectionType) {
       {trackList.map((track) => (
         <PlayListItem
           key={track.id}
-          setTrack={() => setTrack(track)}
-          name={track.name}
-          author={track.author}
-          album={track.album}
-          time={track.duration_in_seconds}
+          item={track}
+          playList={trackList}
+          onClick={() => setTrack(track)}
         ></PlayListItem>
       ))}
     </div>

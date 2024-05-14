@@ -5,12 +5,13 @@ import { useState } from "react";
 import Nav from "@/components/Nav/Nav";
 import Centar from "@/components/Centar/Centar";
 import MaineSideBar from "@/components/MainSideBar/MainSideBar";
+import { trackType } from "@/types";
 
-type MainkType = {
+type MainType = {
   setTrack: (param: trackType) => void;
 };
 
-export default function Main({ setTrack }: MainkType) {
+export default function Main({ setTrack }: MainType) {
   return (
     <main className={styles.main}>
       <Nav></Nav>
