@@ -45,13 +45,19 @@ const initialState: PlaylistStateType = {
   },
 };
 
-function actualPlaylist(state: PlaylistStateType) {
-  return state.isShuffled ? state.shuffledPlaylist : state.playList;
-}
+function changeTrack(direction: number) {
+  return (state: PlaylistStateType) => {
+    const currentTracks = state.isShuffled
+      ? state.shuffledPlaylist
+      : state.playList;
+    let newIndex =
+      currentTracks.findIndex((item) => item.id === state.currentTrack?.id) +
+      direction;
 
-function trackIndex(playList: trackType[], track: trackType | null): number {
-  const index = playList.findIndex((val) => val.id === track?.id);
-  return index;
+    newIndex = (newIndex + currentTracks.length) % currentTracks.length;
+
+    state.currentTrack = currentTracks[newIndex];
+  };
 }
 
 const PlaylistSlice = createSlice({
@@ -68,22 +74,8 @@ const PlaylistSlice = createSlice({
     setCurrentTrack: (state, action: PayloadAction<SetCurrentTrackType>) => {
       state.currentTrack = action.payload.currentTrack;
     },
-    nextTrack: (state) => {
-      const playList = actualPlaylist(state);
-      const currentTrackIndex = trackIndex(playList, state.currentTrack);
-      if (currentTrackIndex !== -1 && currentTrackIndex < playList.length - 1) {
-        const newTrack = playList[currentTrackIndex + 1];
-        state.currentTrack = newTrack;
-      }
-    },
-    previousTrack: (state) => {
-      const playList = actualPlaylist(state);
-      const currentTrackIndex = trackIndex(playList, state.currentTrack);
-      if (currentTrackIndex !== -1 && currentTrackIndex !== 0) {
-        const previousTrack = playList[currentTrackIndex - 1];
-        state.currentTrack = previousTrack;
-      }
-    },
+    nextTrack: changeTrack(1),
+    previousTrack: changeTrack(-1),
     shuffle: (state) => {
       state.isShuffled = !state.isShuffled;
     },

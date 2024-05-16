@@ -120,8 +120,8 @@
 .playerBtnRepeatSvg {
     width: 18px;
     height: 12px;
-    fill: transparent;
-    stroke: #696969;
+    /* fill: transparent;
+    stroke: #ffffff; */
 }
 
 .playerBtnShuffle {
@@ -136,8 +136,8 @@
 .playerBtnShuffleSvg {
     width: 19px;
     height: 12px;
-    fill: transparent;
-    /* stroke: #696969; */
+    /* fill: transparent;
+    stroke: #ffffff; */
 }
 
 .playerTrackPlay {
