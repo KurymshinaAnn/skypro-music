@@ -17,7 +17,7 @@ type PlaylistStateType = {
     authors: Array<string>;
     years: null | string;
     genres: Array<string>;
-    searchValue: string;
+    searchValue: null | string;
   };
 };
 
@@ -41,7 +41,7 @@ const initialState: PlaylistStateType = {
     authors: [],
     years: null,
     genres: [],
-    searchValue: "",
+    searchValue: null,
   },
 };
 
@@ -92,8 +92,7 @@ const PlaylistSlice = createSlice({
         authors: action.payload.authors || state.activeFilters.authors,
         years: action.payload.years || null,
         genres: action.payload.genres || state.activeFilters.genres,
-        searchValue:
-          action.payload.searchValue || state.activeFilters.searchValue,
+        searchValue: action.payload.searchValue || null,
       };
       state.filteredPlaylist = state.playList.filter((track) => {
         const isAuthors =
@@ -104,7 +103,12 @@ const PlaylistSlice = createSlice({
           state.activeFilters.genres.length > 0
             ? state.activeFilters.genres.includes(track.genre)
             : true;
-        return isAuthors && isGenres;
+        const isSearch = state.activeFilters.searchValue
+          ? track.name
+              .toLowerCase()
+              .includes(state.activeFilters.searchValue.toLowerCase())
+          : true;
+        return isAuthors && isGenres && isSearch;
       });
     },
   },
