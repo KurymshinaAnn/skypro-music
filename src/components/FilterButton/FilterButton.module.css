@@ -1,6 +1,7 @@
 .filterWrapper {
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .filterButton {
@@ -37,6 +38,20 @@
     cursor: pointer;
 }
 
+.selectedBadge {
+    background-color: #ad61ff;
+    border-radius: 50%;
+    color: #ffffff;
+    position: absolute;
+    right: 4px;
+    top: -8px;
+    height: 1.5em;
+    width: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .popUpBlock {
     width: 248px;
     max-height: 306px;
@@ -44,7 +59,6 @@
     background-color: #313131;
     margin-top: 46px;
     position: absolute;
-
     padding: 34px 34px;
 }
 
@@ -78,4 +92,15 @@
 
 .popUpLi {
     margin-bottom: 34px;
+    cursor: pointer;
+}
+
+.popUpLi:hover {
+    color: #d9b6ff;
+    cursor: pointer;
+}
+
+.popUpLiActive {
+    color: #ad61ff;
+    text-decoration: underline;
 }
