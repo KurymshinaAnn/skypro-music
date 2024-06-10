@@ -1,3 +1,4 @@
+import { memo } from "react";
 import styles from "./NavLink.module.css";
 
 type NavLinkType = {
@@ -5,7 +6,7 @@ type NavLinkType = {
   children: string;
 };
 
-export default function NavLink({ href, children }: NavLinkType) {
+function NavLink({ href, children }: NavLinkType) {
   return (
     <li className={styles.menuItem}>
       <a href={href} className={styles.menuLink}>
@@ -14,3 +15,5 @@ export default function NavLink({ href, children }: NavLinkType) {
     </li>
   );
 }
+
+export default memo(NavLink);

@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import styles from "./FilterButton.module.css";
+import { memo } from "react";
 
 type FilterButtonType = {
   children: string;
@@ -10,7 +11,7 @@ type FilterButtonType = {
   onItemSelected: (item: string) => void;
 };
 
-export default function FilterButton({
+function FilterButton({
   children,
   onClick,
   isOpened,
@@ -30,7 +31,9 @@ export default function FilterButton({
       >
         {children}
       </div>
-      {selectedItems.length > 0 && <div className={styles.selectedBadge}>{selectedItems.length}</div>}
+      {selectedItems.length > 0 && (
+        <div className={styles.selectedBadge}>{selectedItems.length}</div>
+      )}
       {isOpened && (
         <div className={styles.popUpBlock}>
           <div className={styles.popUpScroll}>
@@ -54,3 +57,5 @@ export default function FilterButton({
     </div>
   );
 }
+
+export default memo(FilterButton);
