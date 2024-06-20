@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { trackType } from "../../types";
-import { RootState } from "@reduxjs/toolkit/query";
 
 type PlaylistStateType = {
   playList: trackType[];
@@ -18,12 +17,18 @@ type PlaylistStateType = {
     searchValue: null | string;
   };
 
-  playListPersonal: number | null;
+  user: UserType;
 };
 
 type SetCurrentTrackType = {
   currentTrack: trackType;
   playList: trackType[];
+};
+
+type UserType = {
+  username: string | null;
+  refresh: string | null;
+  access: string | null;
 };
 
 const initialState: PlaylistStateType = {
@@ -42,7 +47,11 @@ const initialState: PlaylistStateType = {
     searchValue: null,
   },
 
-  playListPersonal: null,
+  user: {
+    username: null,
+    refresh: null,
+    access: null,
+  },
 };
 
 function changeTrack(direction: number) {
@@ -64,6 +73,11 @@ const PlaylistSlice = createSlice({
   name: "playlist",
   initialState,
   reducers: {
+    setUser: (state, action: PayloadAction<UserType>) => {
+      state.user.username = action.payload.username;
+      state.user.refresh = action.payload.refresh;
+      state.user.access = action.payload.access;
+    },
     setPlayList: (state, action: PayloadAction<trackType[]>) => {
       state.playList = action.payload;
       state.filteredPlaylist = state.playList;
@@ -115,6 +129,7 @@ const PlaylistSlice = createSlice({
 });
 
 export const {
+  setUser,
   setPlayList,
   setCurrentTrack,
   nextTrack,
