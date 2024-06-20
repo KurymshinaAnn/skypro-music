@@ -3,8 +3,6 @@ import { trackType } from "../../types";
 import { RootState } from "@reduxjs/toolkit/query";
 
 type PlaylistStateType = {
-  // track: null | trackType;
-
   playList: trackType[];
   currentTrack: null | trackType;
   isPlaying: boolean;
@@ -19,6 +17,8 @@ type PlaylistStateType = {
     genres: Array<string>;
     searchValue: null | string;
   };
+
+  playListPersonal: number | null;
 };
 
 type SetCurrentTrackType = {
@@ -27,8 +27,6 @@ type SetCurrentTrackType = {
 };
 
 const initialState: PlaylistStateType = {
-  // track: null,
-
   playList: [],
   currentTrack: null,
   isPlaying: false,
@@ -43,6 +41,8 @@ const initialState: PlaylistStateType = {
     genres: [],
     searchValue: null,
   },
+
+  playListPersonal: null,
 };
 
 function changeTrack(direction: number) {

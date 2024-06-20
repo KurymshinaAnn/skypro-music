@@ -1,7 +1,8 @@
+"use client";
+
 import { useAppDispatch } from "@/hooks";
 import styles from "./Search.module.css";
 import { setActiveFilter } from "@/store/features/playlistSlice";
-import { useState } from "react";
 
 export default function Search() {
   const dispatch = useAppDispatch();

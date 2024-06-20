@@ -9,7 +9,7 @@ type PlayListBlockType = {
   setTrack: (param: trackType) => void;
 };
 
-export default function PlayListBlock({
+export default function npmPlayListBlock({
   trackList,
   setTrack,
 }: PlayListBlockType) {

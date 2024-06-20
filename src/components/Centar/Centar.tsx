@@ -1,35 +1,30 @@
-import styles from "./Centar.module.css";
-import { useEffect, useState } from "react";
+"use client";
 
-import Search from "../Search/Search";
+import styles from "./Centar.module.css";
+
 import Filter from "@/components/Filter/Filter";
 import PlayListBlock from "../PlayListBlock/PlayListBlock";
-import { getTracks } from "@/api/tracks";
 import { trackType } from "@/types";
 import { useAppDispatch, useAppSelector } from "@/hooks";
-import { setPlayList } from "@/store/features/playlistSlice";
+import { setCurrentTrack, setPlayList } from "@/store/features/playlistSlice";
 
 type CenterBlockType = {
-  setTrack: (param: trackType) => void;
+  title: string;
+  isFiltered: boolean;
 };
 
-export default function Centar({ setTrack }: CenterBlockType) {
-const playList = useAppSelector((state) => state.playlist.filteredPlaylist);
-const dispatch = useAppDispatch();
+export default function Centar({ title, isFiltered }: CenterBlockType) {
+  const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    getTracks()
-      .then((tracks) => dispatch(setPlayList(tracks)))
-      .catch((e) =>
-        console.error("Произошла ошибка при получении списка треков:", e)
-      );
-  }, [dispatch]);
+  const playList = useAppSelector((state) => state.playlist.filteredPlaylist);
+  const setTrack = (track: trackType) => {
+    dispatch(setCurrentTrack({ currentTrack: track, playList }));
+  };
 
   return (
     <div className={styles.mainCenterblock}>
-      <Search></Search>
-      <h2 className={styles.centerblockH2}>Треки</h2>
-      <Filter trackList={playList}></Filter>
+      <h2 className={styles.centerblockH2}>{title}</h2>
+      {isFiltered ? <Filter trackList={playList}></Filter> : null}
       <PlayListBlock trackList={playList} setTrack={setTrack}></PlayListBlock>
     </div>
   );

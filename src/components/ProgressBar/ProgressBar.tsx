@@ -1,4 +1,3 @@
-// import { ChangeEventHandler } from "react";
 import styles from "./ProgressBar.module.css";
 
 type ProgressBarType = {
@@ -6,7 +5,6 @@ type ProgressBarType = {
   step: number;
   value: number | undefined;
   onChange: (value: any) => void;
-  //   onChange: ChangeEventHandler;
 };
 
 export default function ProgressBar({

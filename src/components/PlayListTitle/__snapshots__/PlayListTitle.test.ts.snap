@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders playlist title 1`] = `
+<div
+  className="contentTitle"
+>
+  <div
+    className="playlistTitleCol col01"
+  >
+    Трек
+  </div>
+  <div
+    className="playlistTitleCol col02"
+  >
+    Исполнитель
+  </div>
+  <div
+    className="playlistTitleCol col03"
+  >
+    Альбом
+  </div>
+  <div
+    className="playlistTitleCol col04"
+  >
+    <svg
+      className="playlistTitleSvg"
+    >
+      <use
+        href="img/icon/sprite.svg#icon-watch"
+      />
+    </svg>
+  </div>
+</div>
+`;
