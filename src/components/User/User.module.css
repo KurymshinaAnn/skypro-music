@@ -1,7 +1,4 @@
-.centerblockSearch {
-    width: 1136px;
-    border-bottom: 1px solid #4e4e4e;
-    margin-bottom: 51px;
+.sidebarPersonal {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -12,26 +9,25 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    padding: 12px 25px 15px 0;
 }
 
-.searchSvg {
-    width: 17px;
-    height: 17px;
-    margin-right: 5px;
-    stroke: #ffffff;
-    fill: transparent;
-}
-
-.searchText {
-    -webkit-box-flex: 100;
-    -ms-flex-positive: 100;
-    flex-grow: 100;
-    background-color: transparent;
-    border: none;
-    padding: 13px 10px 14px;
+.sidebarPersonalName {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
     color: #ffffff;
+    margin-right: 16px;
+}
+
+.sidebarIcon {
+    width: 43px;
+    height: 43px;
+    background-color: #313131;
+    border-radius: 50%;
+    cursor: pointer;
 }

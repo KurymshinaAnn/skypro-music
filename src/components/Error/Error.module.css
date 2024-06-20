@@ -1,0 +1,61 @@
+.mainCenterblock {
+    min-width: 12em;
+    flex: 1;
+    -webkit-box-flex: 3;
+    -ms-flex-positive: 3;
+    flex-grow: 3;
+    padding: 20px 40px 20px 40px;
+}
+
+.errorBlock {
+    margin-top: 285px;
+    width: 430px;
+    height: 366px;
+}
+
+.errorH1 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 168px;
+    letter-spacing: -0.8px;
+    margin-bottom: 2px;
+
+}
+
+.errorH2 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    letter-spacing: -0.8px;
+    margin-bottom: 8px;
+}
+
+.errorH3 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 24px;
+    letter-spacing: -0.8px;
+    margin-bottom: 36px;
+}
+
+.errorButton {
+    width: 278px;
+    height: 52px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.05px;
+    color: #FFFFFF;
+    background-color: #580EA2;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
