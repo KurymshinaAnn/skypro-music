@@ -84,6 +84,12 @@ export default function Bar() {
     dispatch(nextTrack());
   };
 
+  const playOnSelected = () => {
+    if (!isPlaying) {
+      togglePlay();
+    }
+  };
+
   return (
     <div className={styles.bar}>
       <div className={styles.barContent}>
@@ -92,6 +98,7 @@ export default function Bar() {
           src={track?.track_file}
           onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
           onEnded={() => onEnded()}
+          onCanPlay={playOnSelected}
         ></audio>
         <ProgressBar
           value={currentTime}

@@ -15,7 +15,7 @@ export default function Filter({ trackList }: PlayListBlockType) {
   const playList = useAppSelector((state) => state.playlist.playList);
 
   const authors = getListItem("author", playList);
-  const years: string[] = [];
+  const years = ["По умолчанию", "Сначала новые", "Сначала старые"];
   const genres = getListItem("genre", playList);
 
   const selectedAuthors = useAppSelector(
@@ -71,7 +71,7 @@ export default function Filter({ trackList }: PlayListBlockType) {
         selectedItems={[]}
         onItemSelected={() => {}}
       >
-        году выпуска
+        годы выпуска
       </FilterButton>
       <FilterButton
         onClick={() => handleFilterClick("genres")}
