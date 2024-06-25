@@ -19,10 +19,19 @@
     flex-direction: row;
     overflow-y: scroll;
     overflow-x: hidden;
-    /* padding-bottom: 100px; */
+}
+
+.userBlock{
+    display: flex;
+    flex-direction: column;
+}
+
+.upBlock{
+    display: flex;
 }
 
 .center {
+    width: 1000px;
     display: flex;
     flex-direction: row;
 }

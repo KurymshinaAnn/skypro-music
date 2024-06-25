@@ -15,9 +15,11 @@ export default function RootLayout({
       <div className={styles.container}>
         <main className={styles.main}>
           <Nav></Nav>
-          <div>
-            <Search></Search>
-            <User></User>
+          <div className={styles.userBlock}>
+            <div className={styles.upBlock}>
+              <Search></Search>
+              <User></User>
+            </div>
             <div className={styles.center}>{children}</div>
           </div>
         </main>

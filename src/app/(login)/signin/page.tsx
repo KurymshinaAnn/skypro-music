@@ -6,7 +6,7 @@ import classNames from "classnames";
 import styles from "./Signin.module.css";
 import Link from "next/link";
 import { useState } from "react";
-import { login } from "@/api/login";
+import { login, tokens } from "@/api/login";
 import { useAppDispatch } from "@/hooks";
 import { setUser } from "@/store/features/playlistSlice";
 import { useRouter } from "next/navigation";
@@ -22,58 +22,70 @@ export default function Signin() {
     e.preventDefault();
     e.stopPropagation();
 
-    dispatch(setUser({ username: "dff", refresh: "ffff", access: "rrtg" }));
-    router.push("/");
-
-    // login({
-    //   email,
-    //   password,
-    // }).then((data) => {
-    //   console.log(data);
-    // });
+    login({
+      email,
+      password,
+    })
+      .then((data) => {
+        if (data.status === 200) {
+          return data.json;
+        } else {
+          alert("Какая то ошибка!");
+        }
+      })
+      .then((user) => {
+        return tokens({ email, password }).then((token) => {
+          dispatch(
+            setUser({
+              username: user.username,
+              access: token.access,
+              refresh: token.refresh,
+            })
+          );
+          router.push("/");
+        });
+      });
   };
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.containerEnter}>
-        <div className={styles.modalBlock}>
-          <form className={styles.modalFormLogin} action="#">
-            <a href="../">
-              <div className={styles.modalLogo}>
-                <Image
-                  src="/img/logo.png"
-                  alt="logo_img"
-                  width={114}
-                  height={17}
-                />
-              </div>
-            </a>
-            <div>
-              <input
-                className={classNames(styles.modalInput, styles.login)}
-                type="text"
-                name="login"
-                placeholder="Почта"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+      <div className={styles.modalBlock}>
+        <form className={styles.modalForm}>
+          <a href="../">
+            <div className={styles.modalLogo}>
+              <Image
+                src="/img/logo_modal.png"
+                alt="logo_img"
+                width={114}
+                height={17}
               />
-              <input
-                className={classNames(styles.modalInput, styles.password)}
-                type="password"
-                name="password"
-                placeholder="Пароль"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <button className={styles.modalBtnEnter} onClick={doLogin}>
-                Войти
-              </button>
-              <button className={styles.modalBtnSignup}>
-                <Link href="/signup">Зарегистрироваться</Link>
-              </button>
             </div>
-          </form>
-        </div>
+          </a>
+          <div className={styles.inputForm}>
+            <input
+              className={styles.input}
+              type="text"
+              name="login"
+              placeholder="Почта"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              className={styles.input}
+              type="password"
+              name="password"
+              placeholder="Пароль"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <button className={styles.button} onClick={doLogin}>
+            Войти
+          </button>
+          <button className={styles.underButton}>
+            <Link href="/signup" className={styles.text}>Зарегистрироваться</Link>
+          </button>
+        </form>
       </div>
     </div>
   );

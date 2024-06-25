@@ -1,4 +1,4 @@
-import ReduxProvider from "@/store/ReduxProvider";
+import styles from "./layout.module.css";
 
 export const metadata = {
   title: "Next.js",
@@ -10,11 +10,5 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <html lang="en">
-      <ReduxProvider>
-        <body>{children}</body>
-      </ReduxProvider>
-    </html>
-  );
+  return <div className={styles.wrapper}>{children}</div>;
 }

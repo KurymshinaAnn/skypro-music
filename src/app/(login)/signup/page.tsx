@@ -27,50 +27,48 @@ export default function Signup() {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.containerSignup}>
-        <div className={styles.modalBlock}>
-          <form className={styles.modalFormLogin}>
-            <a href="../">
-              <div className={styles.modal__logo}>
-                <Image
-                  src="/img/logo.png"
-                  alt="logo_img"
-                  width={114}
-                  height={17}
-                />
-              </div>
-            </a>
-            <div>
-              <input
-                className={classNames(styles.modalInput, styles.login)}
-                type="text"
-                name="login"
-                placeholder="Почта"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+      <div className={styles.modalBlock}>
+        <form className={styles.modalForm}>
+          <a href="../">
+            <div className={styles.modalLogo}>
+              <Image
+                src="/img/logo_modal.png"
+                alt="logo_img"
+                width={114}
+                height={17}
               />
-              <input
-                className={classNames(styles.modalInput, styles.passwordFirst)}
-                type="password"
-                name="password"
-                placeholder="Пароль"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <input
-                className={classNames(styles.modalInput, styles.passwordDouble)}
-                type="password"
-                name="repeat-password"
-                placeholder="Повторите пароль"
-                value={repeatPassword}
-                onChange={(e) => setRepeatPassword(e.target.value)}
-              />
-              <button className={styles.modalBtnSignupEnt} onClick={doRegister}>
-                Зарегистрироваться
-              </button>
             </div>
-          </form>
-        </div>
+          </a>
+          <div className={styles.inputForm}>
+            <input
+              className={styles.input}
+              type="text"
+              name="login"
+              placeholder="Почта"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              className={styles.input}
+              type="password"
+              name="password"
+              placeholder="Пароль"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <input
+              className={styles.input}
+              type="password"
+              name="repeat-password"
+              placeholder="Повторите пароль"
+              value={repeatPassword}
+              onChange={(e) => setRepeatPassword(e.target.value)}
+            />
+          </div>
+          <button className={styles.button} onClick={doRegister}>
+            Зарегистрироваться
+          </button>
+        </form>
       </div>
     </div>
   );

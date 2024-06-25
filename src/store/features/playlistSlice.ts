@@ -10,6 +10,7 @@ type PlaylistStateType = {
 
   isSearch: boolean;
   filteredPlaylist: trackType[];
+  favoritePlaylist: trackType[];
   activeFilters: {
     authors: Array<string>;
     years: null | string;
@@ -40,6 +41,7 @@ const initialState: PlaylistStateType = {
 
   isSearch: false,
   filteredPlaylist: [],
+  favoritePlaylist: [],
   activeFilters: {
     authors: [],
     years: null,
@@ -85,8 +87,19 @@ const PlaylistSlice = createSlice({
         () => 0.5 - Math.random()
       );
     },
+    setFavoritePlaylist: (state, action: PayloadAction<trackType[]>) => {
+      state.favoritePlaylist = action.payload;
+    },
     setCurrentTrack: (state, action: PayloadAction<SetCurrentTrackType>) => {
       state.currentTrack = action.payload.currentTrack;
+    },
+    removeFavorite: (state, action: PayloadAction<trackType>) => {
+      state.favoritePlaylist = state.favoritePlaylist.filter(
+        (track) => track.id != action.payload.id
+      );
+    },
+    addFavorite: (state, action: PayloadAction<trackType>) => {
+      state.favoritePlaylist = [...state.favoritePlaylist, action.payload];
     },
     nextTrack: changeTrack(1),
     previousTrack: changeTrack(-1),
@@ -136,5 +149,8 @@ export const {
   previousTrack,
   shuffle,
   setActiveFilter,
+  setFavoritePlaylist,
+  removeFavorite,
+  addFavorite,
 } = PlaylistSlice.actions;
 export const playlistReducer = PlaylistSlice.reducer;

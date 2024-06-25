@@ -32,7 +32,7 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    width: 447px;
+    width: 355px;
 }
 
 .trackTitleImage {
@@ -69,8 +69,6 @@
     animation: pulsate 1s ease-out;
     animation-iteration-count: infinite;
     opacity: 0.0
-    /* height: 1px; */
-    /* width: 1px; */
 }
 
 @keyframes pulsate {
@@ -136,12 +134,25 @@
     color: #696969;
 }
 
+.trackTime {
+    display: flex;
+    align-items: center;
+}
+
 .trackTimeSvg {
     width: 14px;
     height: 12px;
     margin-right: 17px;
     fill: transparent;
     stroke: #696969;
+}
+
+.trackTimeSvgActive {
+    width: 14px;
+    height: 12px;
+    margin-right: 17px;
+    fill: #B672FF;
+    stroke: #B672FF;
 }
 
 .trackTimeText {

@@ -1,5 +1,6 @@
 import { memo } from "react";
 import styles from "./NavLink.module.css";
+import Link from "next/link";
 
 type NavLinkType = {
   href: string;
@@ -9,9 +10,9 @@ type NavLinkType = {
 function NavLink({ href, children }: NavLinkType) {
   return (
     <li className={styles.menuItem}>
-      <a href={href} className={styles.menuLink}>
+      <Link href={href} className={styles.menuLink}>
         {children}
-      </a>
+      </Link>
     </li>
   );
 }

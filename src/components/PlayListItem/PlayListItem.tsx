@@ -7,12 +7,16 @@ type PlayListItemType = {
   item: trackType;
   onClick: () => void;
   playList: trackType[];
+  isFavorite: boolean;
+  onFavoriteClick: (ev: React.MouseEvent) => void;
 };
 
 export default function PlayListItem({
   item,
   onClick,
   playList,
+  isFavorite,
+  onFavoriteClick,
 }: PlayListItemType) {
   const track = useAppSelector((store) => store.playlist.currentTrack);
   const dispatch = useAppDispatch();
@@ -49,7 +53,12 @@ export default function PlayListItem({
           <span className={styles.trackAlbumLink}>{item.album}</span>
         </div>
         <div className={styles.trackTime}>
-          <svg className={styles.trackTimeSvg}>
+          <svg
+            onClick={onFavoriteClick}
+            className={
+              isFavorite ? styles.trackTimeSvgActive : styles.trackTimeSvg
+            }
+          >
             <use href="/img/icon/sprite.svg#icon-like"></use>
           </svg>
           <span

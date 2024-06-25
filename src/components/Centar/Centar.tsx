@@ -6,7 +6,7 @@ import Filter from "@/components/Filter/Filter";
 import PlayListBlock from "../PlayListBlock/PlayListBlock";
 import { trackType } from "@/types";
 import { useAppDispatch, useAppSelector } from "@/hooks";
-import { setCurrentTrack, setPlayList } from "@/store/features/playlistSlice";
+import { setCurrentTrack } from "@/store/features/playlistSlice";
 
 type CenterBlockType = {
   title: string;
