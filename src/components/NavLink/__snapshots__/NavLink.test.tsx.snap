@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders NavLink with different names 1`] = `
+<li
+  className="menuItem"
+>
+  <a
+    className="menuLink"
+    href="https://google.com"
+  >
+    test
+  </a>
+</li>
+`;

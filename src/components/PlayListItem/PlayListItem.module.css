@@ -32,7 +32,7 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    width: 447px;
+    width: 355px;
 }
 
 .trackTitleImage {
@@ -50,6 +50,7 @@
     -ms-flex-pack: center;
     justify-content: center;
     margin-right: 17px;
+    position: relative;
 }
 
 .trackTitleSvg {
@@ -57,6 +58,33 @@
     height: 17px;
     fill: transparent;
     stroke: #4e4e4e;
+}
+
+.trackPulsate {
+    border: 8px solid #B672FF;
+    border-radius: 8px;
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    animation: pulsate 1s ease-out;
+    animation-iteration-count: infinite;
+    opacity: 0.0
+}
+
+@keyframes pulsate {
+    0% {
+        -webkit-transform: scale(0.1, 0.1);
+        opacity: 0.0;
+    }
+
+    50% {
+        opacity: 1.0;
+    }
+
+    100% {
+        -webkit-transform: scale(1.2, 1.2);
+        opacity: 0.0;
+    }
 }
 
 .trackTitleLink {
@@ -106,12 +134,25 @@
     color: #696969;
 }
 
+.trackTime {
+    display: flex;
+    align-items: center;
+}
+
 .trackTimeSvg {
     width: 14px;
     height: 12px;
     margin-right: 17px;
     fill: transparent;
     stroke: #696969;
+}
+
+.trackTimeSvgActive {
+    width: 14px;
+    height: 12px;
+    margin-right: 17px;
+    fill: #B672FF;
+    stroke: #B672FF;
 }
 
 .trackTimeText {

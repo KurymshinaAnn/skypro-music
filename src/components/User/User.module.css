@@ -1,0 +1,24 @@
+.sidebarPersonal {
+    width: 255px;
+    background-color: #181818;
+    padding: 20px 0 20px 36px;
+    display: flex;
+    justify-content: end;
+}
+
+.sidebarPersonalName {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #ffffff;
+    margin-right: 16px;
+}
+
+.sidebarIcon {
+    width: 43px;
+    height: 43px;
+    background-color: #313131;
+    border-radius: 50%;
+    cursor: pointer;
+}

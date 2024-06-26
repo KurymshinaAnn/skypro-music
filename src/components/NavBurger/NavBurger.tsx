@@ -18,7 +18,7 @@ export default function NavBurger({ onClick, isOpen }: NavBurgerType) {
         <div className={styles.navMenu}>
           <ul className={styles.menuList}>
             <NavLink href="/">Главное</NavLink>
-            <NavLink href="/my_playlist">Мой плейлист</NavLink>
+            <NavLink href="/favorite">Мой плейлист</NavLink>
             <NavLink href="/signin">Войти</NavLink>
           </ul>
         </div>

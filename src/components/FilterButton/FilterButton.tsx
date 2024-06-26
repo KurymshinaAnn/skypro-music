@@ -1,18 +1,23 @@
 import classNames from "classnames";
 import styles from "./FilterButton.module.css";
+import { memo } from "react";
 
 type FilterButtonType = {
   children: string;
   onClick: () => void;
   isOpened: boolean;
-  list: Array<{ id: number; name: string }>;
+  list: Array<string>;
+  selectedItems: string[];
+  onItemSelected: (item: string) => void;
 };
 
-export default function FilterButton({
+function FilterButton({
   children,
   onClick,
   isOpened,
   list,
+  selectedItems,
+  onItemSelected,
 }: FilterButtonType) {
   return (
     <div className={styles.filterWrapper}>
@@ -26,14 +31,24 @@ export default function FilterButton({
       >
         {children}
       </div>
+      {selectedItems.length > 0 && (
+        <div className={styles.selectedBadge}>{selectedItems.length}</div>
+      )}
       {isOpened && (
         <div className={styles.popUpBlock}>
           <div className={styles.popUpScroll}>
             <ul className={styles.popUpSelection}>
               {list.map((item) => (
-                <li key={item.id}
-                className={styles.popUpLi}
-                >{item.name}</li>
+                <li
+                  onClick={() => onItemSelected(item)}
+                  key={item}
+                  className={classNames(
+                    styles.popUpLi,
+                    selectedItems.includes(item) ? styles.popUpLiActive : ""
+                  )}
+                >
+                  {item}
+                </li>
               ))}
             </ul>
           </div>
@@ -42,3 +57,5 @@ export default function FilterButton({
     </div>
   );
 }
+
+export default memo(FilterButton);

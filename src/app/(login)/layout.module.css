@@ -1,0 +1,9 @@
+.wrapper {
+    max-width: 1920px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
